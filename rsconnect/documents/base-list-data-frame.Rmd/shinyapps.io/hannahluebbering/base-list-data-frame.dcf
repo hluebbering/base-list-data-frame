@@ -1,0 +1,13 @@
+name: base-list-data-frame
+title: base-list-data-frame
+username:
+account: hannahluebbering
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2351333
+bundleId: 3185988
+url: https://hannahluebbering.shinyapps.io/base-list-data-frame/
+when: 1590375863.3891
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: README.md
