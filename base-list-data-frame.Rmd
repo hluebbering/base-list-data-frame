@@ -1,0 +1,100 @@
+---
+title: "Lists and Data Frames"
+output:
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(tidyverse)
+knitr::opts_chunk$set()
+```
+
+## <span style="color: teal;">Lists</span>
+
+An `R list` is a recursive vector. It's a data structure consisting of a collection of _components_. The components can be of different types (ie character, numeric) disguised as model objects, data frames, list-columns within data frames, and more. 
+
+For example, a list could be a collection of different types of vectors of different lengths, as seen below.
+ 
+```{r}
+list(a = 1:3, b = "a string", c = pi, d = list(-1, -5))
+```
+
+Components of the list are _numbered_. These components are also known as sub-litss and can be extracted using a double bracket. For example, you can reference the first element of a list with `[[1]]` as seen below.
+
+```{r}
+x <- list(a = 1:3, b = "a string", c = pi, d = list(-1, -5))
+x[[1]]
+```
+
+Components can also be referenced via their _names_. For example, the first element of the list below could be referenced by `[["a"]]`
+
+```{r}
+x[["a"]]
+```
+
+## <span style="color: teal;">Exercise</span>
+
+Combine the following four vectors into a list.
+
+```{r list, exercise = TRUE}
+x <- c(10, 9, 4)
+y <- 1
+z <- c("string", "characters")
+```
+
+```{r list-check}
+x <- c(10, 9, 4)
+y <- 1
+z <- c("string", "characters")
+grade_result(
+  pass_if(~ identical(.result, list(x, y, z)))
+)
+```
+
+## <span style="color: teal;">Data frames</span>
+
+A _data frame_ is a specific type of _list_ with the class `data.frame`. Tibbles are a specific subclass of `data.frame` and one of the unifying features of the tidyverse. 
+Data frames consist of _rows_ and _columns_. 
+
+For example, here is a data frame with three columns, `x`, `y`, and `z` each with four rows.
+
+```{r}
+data.frame(
+  x = c(2, 4, 6, 8),
+  y = c(10, 12, 14, 16),
+  z = c(18, 20, 22, 24)
+)
+```
+
+For example, here is a `tibble` data frame with three columns, `x`, `y`, and `z`.
+
+```{r}
+tibble(
+  x = (1:5), 
+  y = (1), 
+  z = (x^ 2 + y)
+)
+```
+
+## <span style="color: teal;">Exercise</span>
+
+Create a `tibble` data frame using the `tibble()` function consisting of the three variables detailed below.
+
+```{r dataframe, exercise = TRUE}
+`:)` <- c("smile")
+` ` <- c("space")
+`2000`<-c("number")
+```
+
+```{r dataframe-check}
+`:)` <- c("smile")
+` ` <- c("space")
+`2000`<-c("number")
+grade_result(
+  pass_if(~ identical(.result, tibble(`:)`, ` `, `2000`)))
+  )
+```
