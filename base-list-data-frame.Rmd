@@ -12,6 +12,7 @@ library(learnr)
 library(tidyverse)
 library(gradethis)
 knitr::opts_chunk$set()
+tutorial_options(exercise.checker = gradethis::grade_learnr)
 ```
 
 ## <span style="color: teal;">Lists</span>
@@ -21,13 +22,21 @@ An `R list` is a recursive vector. It's a data structure consisting of a collect
 For example, a list could be a collection of different types of vectors of different lengths, as seen below.
  
 ```{r}
-list(a = 1:3, b = "a string", c = pi, d = list(-1, -5))
+list(a = 1:3, 
+     b = "a string",
+     c = pi,
+     d = list(-1, -5)
+     )
 ```
 
 Components of the list are _numbered_. These components are also known as sub-litss and can be extracted using a double bracket. For example, you can reference the first element of a list with `[[1]]` as seen below.
 
 ```{r}
-x <- list(a = 1:3, b = "a string", c = pi, d = list(-1, -5))
+x <- list(a = 1:3,
+          b = "a string",
+          c = pi,
+          d = list(-1, -5)
+          )
 x[[1]]
 ```
 
@@ -83,19 +92,18 @@ tibble(
 
 ## <span style="color: teal;">Exercise</span>
 
-Create a `tibble` data frame using the `tibble()` function consisting of the three variables detailed below.
+Create a data frame using the `data.frame()` function consisting of two variables, `x` and `y`, detailed below.
 
 ```{r dataframe, exercise = TRUE}
-`:)` <- c("smile")
-` ` <- c("space")
-`2000`<-c("number")
+x <- c(1, 2, 3)
+y <- c("do", "re", "mi")
 ```
 
 ```{r dataframe-check}
-`:)` <- c("smile")
-` ` <- c("space")
-`2000`<-c("number")
+x <- c(1, 2, 3)
+y <- c("do", "re", "mi")
 grade_result(
-  pass_if(~ identical(.result, tibble(`:)`, ` `, `2000`)))
-  )
+  pass_if(~ identical(.result, data.frame(x = x, y = y)))
+)
 ```
+
